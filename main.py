@@ -22,7 +22,6 @@ if today in birthday_dict:
     with open(file_path) as file:
         letter_contents = file.read()
         new_letter = letter_contents.replace(PLACEHOLDER, birthday_person["name"])
-        print(new_letter)
         with smtplib.SMTP("smtp.mail.yahoo.com") as connection:
             connection.starttls()
             connection.login(my_email, password)
@@ -31,5 +30,4 @@ if today in birthday_dict:
                                              msg=f"subject: HAPPY BIRTHDAY\n\n{new_letter}")
     print("false")
 
-# 4. Send the letter generated in step 3 to that person's email address.
-# HINT: Gmail(smtp.gmail.com), Yahoo(smtp.mail.yahoo.com), Hotmail(smtp.live.com), Outlook(smtp-mail.outlook.com)
+
